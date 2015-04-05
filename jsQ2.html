@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jsQ2</title>
+    <style>
+    div {
+		top: 0px;
+		left: 0px;
+		width:80px;
+		height:80px;
+        position: absolute;
+        color: red;
+        background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+slm slm slm slm slm slm slm slm slm slm slm slm
+	
+    </div>
+	</body>
+
+<script>
+    var squere = document.querySelector("div");
+    var start = -1;
+    squere.addEventListener("click", function(){
+        window.requestAnimationFrame(trigger);
+    });
+    function trigger(timestamp){
+        if (start < 0) {
+            start = timestamp;
+        }
+        var dwidth = window.innerWidth - squere.style.width - 80;
+        var dheight = window.innerHeight - squere.style.height - 80;
+        var dtime = timestamp - start;
+        var total = 5 * 1000;
+        squere.style.left = dwidth * (dtime  / total) + 'px';
+        squere.style.top = dheight * (dtime  / total) + 'px';
+
+        if (timestamp - start < total) {
+            window.requestAnimationFrame (trigger);
+        }
+    }
+</script>
+
+</body>
+</html>

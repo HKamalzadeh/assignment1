@@ -1,0 +1,31 @@
+html>
+    <head>
+        <meta charset="utf-8">
+        <title>jsQ1</title>
+    </head>
+    <body>
+
+	<input type="text">
+    <script>
+        function valid (keyCode) {
+            switch (String.fromCharCode (keyCode)) {
+            case 'A':
+            case 'U':
+            case 'O':
+            case 'C':
+            case 'N':
+            return false;
+            }
+            
+        }
+        function handle (event) {
+            if (valid (event.keyCode) == false) {
+                event.preventDefault ();
+            }
+            //console.log(event);
+        }
+        var field = document.querySelector("input");
+        field.onkeypress = handle;
+    </script>
+    </body>
+</html>

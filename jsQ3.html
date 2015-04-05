@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jsQ3</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>Student Number</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td colspan="2">Age</td>
+            </tr>
+            <tr>
+                <td>90909090</td>
+                <td>Steven</td>
+                <td>Wilson</td>
+                <td colspan="2">46</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="stdNum" /></td>
+                <td><input type="text" id="firstName"/></td>
+                <td><input type="text" id="lastName"/></td>
+                <td><input type="text" id="age"/></td>
+                <td><input type="button" value="Add" onclick="addFunction()"/></td>
+            </tr>
+        </table>
+        <script>
+            function addFunction(){
+                var table=document.querySelector("table");
+                var row = table.insertRow(document.querySelectorAll("table tr").length-1);
+                var std = row.insertCell(0);
+                std.innerHTML=document.querySelector("#stdNum").value;
+                var firstName= row.insertCell(1);
+                firstName.innerHTML=document.querySelector("#firstName").value;
+                var lastName= row.insertCell(2);
+                lastName.innerHTML=document.querySelector("#lastName").value;
+                var age= row.insertCell(3);
+                age.setAttribute("colspan","2");
+                age.innerHTML=document.querySelector("#age").value;
+                var inputs=document.querySelectorAll("input");
+                for(i=0;i<inputs.length-1;i++) {
+                    inputs[i].value="";
+                }
+
+            }
+        </script>
+    </body>
+</html>
